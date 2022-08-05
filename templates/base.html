@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>3P Wholesale</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{url_for('static', filename='styleonem.css')}}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <!-- Josh - Creating navbar, with style -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <a class="navbar-brand" href="{{url_for('home')}}">Home</a>
+        <a class="navbar-brand" href="{{url_for('browse')}}">Browse</a>
+        <p class="navbar-brand" style="margin-left: 445px; color: black; font-size: 25px;"> Patton-Pruitt Produce Inc.</p>
+        <div id="login">
+            <a class="navbar-brand" href="{{url_for('signin')}}">Log In</a>
+            <a class="navbar-brand" href="{{url_for('signup')}}">Sign Up</a>
+
+            <style type="text/css">
+                #login{
+                    float: right;
+                }
+            </style>
+        </div>
+    </nav>
+    <!--End - Josh-->
+
+    <body>
+     {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}        
+        <script src=" " async defer></script>
+
+    </body>
+    <!-- Josh - Adding footer with links to all pages and a logout option -->
+    <footer>
+        <div class="footerContainer">
+            <div class="contact">
+                <h5>Contact Us!</h5>
+                <p>Alex Pruitt, Joshua Patton</p>
+                <p>The University of Alabama at Birmingham</p>
+                <p>Birmingham, Al 35294</p>
+            </div>
+            <div class="sitemap">
+                <h5>Sitemap</h5>
+                <ul>
+                    <li><a href="{{url_for('home')}}">Home</a></li>
+                    <li><a href="{{url_for('browse')}}">Browse</a></li>
+                    <!-- !!! Add url for logout when logout method is complete !!! -->
+                    <li><a href="{{url_for('signup')}}">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+        <style>
+            *{
+                list-style: none;
+                text-decoration: none;
+            }
+            .footerContainer{
+                width: 100%;
+                position: sticky;
+                bottom: 0;
+                border-top: 1px solid rgb(225, 225, 225);
+            }
+            footer{               
+                overflow: auto;               
+                padding-top: 5px;
+                padding-bottom: 5px;
+                color: #555;
+            }
+            .contact{
+                float: left;
+                margin-left: 20px;   
+            }
+            .contact h5{
+                text-decoration: underline;
+            }
+            .sitemap{
+                float: right;
+                width: 285;
+                text-align: left;
+                margin-right: 50px;   
+            }
+            .sitemap h5{
+                text-decoration: underline;
+                text-align: right;
+            }
+            .sitemap ul{
+                float: left;    
+            }
+            .sitemap a{
+                text-align: center;
+                color: #555;
+            }
+            .sitemap a:hover{
+                color: black;
+            }
+        </style>
+    </footer>
+    <!--End - Josh-->
+</html>

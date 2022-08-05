@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3P Wholesale</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <div class="flashmsg">
+        Error : {{ msg }}
+      </div>
+
+    <div>
+        <div id="welcome">
+            <p class="userWelcome">Hello, {{session.email}}</p>
+        </div>
+        <div id="cart">
+            <h3>Your Cart:</h3>
+            <table border="1">
+                <thead>
+                    <td>Item Name:</td>
+                    <td>Item ID:</td>
+                    <td>Amount:</td>
+                    <td>Price:</td>
+                </thead>
+                {% for row in rows %}
+                <tr>
+                    <td>{{row["itemName"]}}</td>
+                    <td>{{row["itemID"]}}</td>
+                    <td>{{row["amount"]}}</td>
+                    <td>{{row["price"]}}</td>
+                </tr>
+            {% endfor %}
+            </table>
+            <p>Subtotal: ${{ total }}.00</p>
+            <div class="checkout">
+                <form action="{{url_for('checkout')}}">
+                    <button>Proceed to Checkout</button>
+                </form>    
+            </div>
+        </div>               
+    </div>
+    
+
+    <style type="text/css">
+        #welcome p{
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+        #welcome h1{
+            text-align: center;
+            background-color: white;
+            border-style: none;
+            font-size: 30px;
+        }
+        #cart{
+            margin-left: 20px;
+        }
+        #cart p{
+            margin-left: 575px;
+        }
+        #cart table{
+            width: 700px;
+        }
+        #cart thead{
+            text-align: center;
+        }
+        #cart td{
+            padding: 5px;
+        }
+        #cart button{
+            margin-top: 20px;
+            margin-left: 1300px;
+            margin-bottom: 185px;
+            padding: 5px;
+        }
+        .userWelcome{
+            padding-top: 50px;
+            margin-bottom: 50px;
+        }       
+        .flashmsg{
+            margin-top: 60px;
+        } 
+    </style>
+    {% endblock %}
+</body>
+</html>

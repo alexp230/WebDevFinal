@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3P Wholesale</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <div class="checkoutContainer">
+        <div class="shipping">
+            <h3>Shipping/Billing Details</h3>
+            <div>
+                <label for="streetAddress">Street Address: </label>
+                <input type="text" name="streetAddress">
+            </div>
+            <div>
+                <label for="buildingType">Building Type: </label>
+                <input type="text" name="buildingType" placeholder="Apartment, Suite, Unit. Etc.. (Optional)">
+            </div>
+            <div>
+                <label for="city">Town/City: </label>
+                <input type="text" name="city">
+            </div>
+            <div>
+                <label for="state">State: </label>
+                <input type="text" name="state">
+            </div>
+            <div>
+                <label for="zip">ZIP: </label>
+                <input type="text" name="zip">
+            </div>
+            <div>
+                <label for="phone">Phone: </label>
+                <input type="text" name="phone">
+            </div>
+        </div>
+        <div class="paymentMethod">
+            <h3>Payment Method</h3>
+            <div>
+                <label for="cardnumber">Card Number: </label>
+                <input type="text" name="cardnumber">
+            </div>
+            <div>
+                <label for="expdate">Exp date: </label>
+                <input type="text" name="expdate">
+            </div>
+            <div>
+                <label for="cvv">CVV: </label>
+                <input type="text" name="cvv">
+            </div>
+            <div>
+                <label for="zip">ZIP: </label>
+                <input type="text" name="zip">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="cart">
+            <h3>Order Summary:</h3>
+            <table border="1">
+                <thead>
+                    <td>Item Name:</td>
+                    <td>Item ID:</td>
+                    <td>Amount:</td>
+                    <td>Price:</td>
+                </thead>
+                {% for row in rows %}
+                <tr>
+                    <td>{{row["itemName"]}}</td>
+                    <td>{{row["itemID"]}}</td>
+                    <td>{{row["amount"]}}</td>
+                    <td>{{row["price"]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <p>Subtotal: ${{total}}.00</p>
+        </div>
+    </div>
+    <div class="back">
+        <a href="{{url_for('home')}}">Back to Cart</a>
+    </div>
+    <form action="{{url_for('specialthanks')}}">
+        <div class="confirm">
+           <button type="submit">Place Your Order</button> 
+        </div>
+    </form>
+    
+    <style type="text/css">
+        body{
+            margin-top: 80px;           
+            margin-left: 245px;
+        }
+        .checkoutContainer{
+            float: left;
+            margin-right: 80px;
+        }
+        .shipping div{
+            margin-top: 20px;
+        }
+        .paymentMethod{
+            margin-top: 50px;
+            margin-bottom: 80px;           
+        }
+        .paymentMethod div{
+            margin-top: 20px;
+        }
+        .cart{
+            padding-top: 1px;
+            margin-left: 20px;
+        }
+        .cart p{
+            margin-left: 898px;
+        }
+        .cart table{
+            width: 700px;
+        }
+        .cart thead{
+            text-align: center;
+        }
+        .cart td{
+            padding: 5px;
+        }
+        input{
+            width: 100%;
+        }
+        .back{
+            margin-left: 487.5px;
+            padding-top: 2px;
+            float: inline-start;
+        }
+        .confirm{
+            margin-left: 15px;
+            float: inline-start;
+            padding-right: 250px;
+        }
+        footer{
+            display: none;
+        }
+    </style>   
+    {% endblock %}
+</body>
+</html>

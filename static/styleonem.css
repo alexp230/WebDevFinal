@@ -1,0 +1,41 @@
+body
+{
+    background-color: aquamarine;
+}
+
+h1
+{
+    font-size: 50px;
+    font-weight: 800;
+    border-color: aliceblue;
+    border-style: solid;
+    background-color: rgba(9, 212, 214, 0.8);
+}
+
+h2
+{
+    border-style: solid;
+    border-color: black;
+}
+
+
+
+*
+{
+    box-sizing: border-box;
+}
+
+.d-flex
+{
+    font-size: large;
+    color: rgb(5, 10, 10);
+}
+
+
+input
+{
+    background-color: rgb(237, 234, 234);
+}
+
+
+

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block header %}{% endblock %}
+{% block content %}
+
+<div class="message">
+{{ msg }}
+</div>
+
+<h3 class="goodbye">Have a nice day!</h3>
+
+<style>
+    .message{
+        margin-top: 60px;
+        margin-left: 20px;
+        font-size: 50px;
+    }
+    .goodbye{
+        margin-bottom: 385px;
+        margin-left: 20px;
+    }
+</style>
+
+{% endblock %}

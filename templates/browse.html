@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3P Wholesale</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <div class="flashmsg">
+        Results : {{ msg }}
+    </div>
+
+    <p> {{ items }}</p>
+    <div class="container">
+        <h2 id="productTitle">Products</h2>
+        <div class="row">
+            <div class="fruits"> <h3 id="productTitle1">Fruits:</h3>
+                <div class="column">
+                    <img src="static/apples.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[0].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[0].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[0].stock }}</p>
+                        <p name="price">${{ items[0].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/banana.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[1].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[1].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[1].stock }}</p>
+                        <p name="price">${{ items[1].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/apricot.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}" method = "POST">
+                        <h4 name="itemName">{{ items[8].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[8].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[8].stock }}</p>
+                        <p name="price">${{ items[8].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/peach.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[12].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[12].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[12].stock }}</p>
+                        <p name="price">${{ items[12].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/orange.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[4].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[4].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[4].stock }}</p>
+                        <p name="price">${{ items[4].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/lemon.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[5].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[5].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[5].stock }}</p>
+                        <p name="price">${{ items[5].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/watermelon.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[15].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[15].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[15].stock }}</p>
+                        <p name="price">${{ items[15].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/lime.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[7].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[7].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[7].stock }}</p>
+                        <p name="price">${{ items[7].price }}.00</p>
+                    </form>
+                </div>
+                <div class="submission"> 
+                    <form action="{{url_for('additem')}}" method = "POST">
+                        <center><h3>Type how much of the product, then the barcode for the item</h3> </center>
+                        <input type="number" class="amount" name="amount" placeholder="#">
+                        <input type="text" name="theitemID" placeholder="Barcode:">
+                        <button>Add to cart</button>
+                    </form>
+                </div>
+            </div>
+            <div class="vegatables"> <h3 id="productTitle2">Vegatables:</h3>
+                <div class="column">
+                    <img src="static/potato.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[2].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[2].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[2].stock }}</p>
+                        <p name="price">${{ items[2].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/cucumber.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[3].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[3].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[3].stock }}</p>
+                        <p name="price">${{ items[3].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/carrot.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}" method = "POST">
+                        <h4 name="itemName">{{ items[6].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[6].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[6].stock }}</p>
+                        <p name="price">${{ items[6].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/collardgreen.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[9].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[9].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[9].stock }}</p>
+                        <p name="price">${{ items[9].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/sweetpotato.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[14].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[14].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[14].stock }}</p>
+                        <p name="price">${{ items[14].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/corn.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[10].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[10].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[10].stock }}</p>
+                        <p name="price">${{ items[10].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/greenbean.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[11].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[11].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[11].stock }}</p>
+                        <p name="price">${{ items[11].price }}.00</p>
+                    </form>
+                </div>
+                <div class="column">
+                    <img src="static/pepper.jpg" height="100" alt="Image Not Found">
+                    <form action="{{url_for('additem')}}">
+                        <h4 name="itemName">{{ items[13].name }}</h4>
+                        <p name="itemID">Barcode: {{ items[13].barcode }}</p>
+                        <p name="stock"> Stock: {{ items[13].stock }}</p>
+                        <p name="price">${{ items[13].price }}.00</p>
+                    </form>
+                </div>
+                <div class="submission"> 
+                    <form action="{{url_for('additem')}}" method = "POST">
+                        <center><h3>Type how much of the product, then the barcode for the item</h3> </center>
+                        <input type="number" class="amount" name="amount" placeholder="#">
+                        <input type="text" name="theitemID" placeholder="Barcode:">
+                        <button>Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <style type="text/css">
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .flashmsg{
+            margin-top: 60px;
+        }
+        p{
+            color: rgba(253, 253, 253, 1);
+            font-weight: normal;
+        }
+        .container{
+            max-width: 1080px;
+            margin-bottom: 5%;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 10px;
+            background-color:  rgba(9, 212, 214, 0.8);
+        }
+        .row{
+            padding-left: 25px;
+            padding-right: 25px;
+            display: inline-block;           
+        }       
+        .column{
+            flex-basis: 25%;
+            padding: 10px;
+            min-width: 200px;
+            margin-bottom: 50px;
+            display: inline-block;
+            margin-right: 20px;
+            margin-left: 20px;
+            background-color: rgba(13, 170, 173, 0.8);
+            border-style: solid;
+            border-color: #555;
+            border-width: 3px;
+        }
+        .column img{
+            width: 100%;
+        }
+        #productTitle{
+            border-style: none;
+            margin-left: 20px;
+        }
+        #productTitle1{
+            margin-left: 20px;
+            color: #555;
+        }
+        #productTitle2{
+            margin-left: 20px;
+            color: #555;
+        }
+        .contact p{
+            color: #555;
+        }
+        .column h4{
+            color: rgba(253, 253, 253, 1);
+            font-weight: normal;
+        }
+        .column p{
+            font-size: 12px;
+        }
+        .amount{
+            width: 45px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+        button{
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .submission{
+            text-align: center;
+            padding-bottom: 5%;
+        }
+    </style>
+    {% endblock %}
+</body>
+</html>
